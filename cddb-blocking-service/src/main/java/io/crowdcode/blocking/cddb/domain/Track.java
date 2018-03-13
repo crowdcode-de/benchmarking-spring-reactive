@@ -16,9 +16,6 @@ public class Track implements Serializable {
     private String title;
     private int trackNo;
 
-    public Track() {
-    }
-
     public Track(String title, int trackNo) {
         this.title = title;
         this.trackNo = trackNo;
