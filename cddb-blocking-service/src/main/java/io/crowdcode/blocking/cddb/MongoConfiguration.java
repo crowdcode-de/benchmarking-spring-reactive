@@ -17,7 +17,7 @@ public class MongoConfiguration {
     @Value("${mongodb_host:localhost}")
     private String host;
 
-    @Value("${mongodb_databaseName:CdDb}")
+    @Value("${mongodb_databaseName:cddb}")
     private String databaseName;
 
     @Bean
