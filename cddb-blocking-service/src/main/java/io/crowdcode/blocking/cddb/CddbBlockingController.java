@@ -32,9 +32,9 @@ public class CddbBlockingController {
     }
 
 
-    @GetMapping(path = "/{code}")
-    public ResponseEntity<Album> getAlbumByCode(@PathVariable("code") String code) {
-        Optional<Album> byDiscId = albumRepository.findByDiscId(code);
+    @GetMapping(path = "/{discId}")
+    public ResponseEntity<Album> getAlbumByDiscId(@PathVariable("discId") String discId) {
+        Optional<Album> byDiscId = albumRepository.findByDiscId(discId);
         if (byDiscId.isPresent()) {
             return ResponseEntity.ok(byDiscId.get());
         } else {
