@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>io.crowdcode.benchmarking</groupId>
+    <artifactId>benchmarking-spring-reactive</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>blocking-cddb-service</module>
+    </modules>
+
+    <name>benchmarking-spring-reactive</name>
+    <description>Demo for benchmarking blocking vs non-blocking database access</description>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>9.0.4</java.version>
+        <java.lang.level>9</java.lang.level>
+        <resource.delimiter>@</resource.delimiter>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <spring-boot.version>2.0.0.RELEASE</spring-boot.version>
+    </properties>
+
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-framework-bom</artifactId>
+                <version>5.0.4.RELEASE</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-parent</artifactId>
+                <version>${spring-boot.version}</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+                <plugins>
+                    <plugin>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-maven-plugin</artifactId>
+                        <version>${spring-boot.version}</version>
+                    </plugin>
+		            <plugin>
+		                <artifactId>maven-compiler-plugin</artifactId>
+		                <version>3.7.0</version>
+		                <configuration>
+		                    <parameters>true</parameters>
+		                    <source>${java.lang.level}</source>
+		                    <target>${java.lang.level}</target>
+		                </configuration>
+		                <executions>
+		                    <execution>
+		                        <id>default-compile</id>
+		                        <configuration>
+		                            <!-- compile everything to ensure module-info contains right entries -->
+		                            <!-- required when JAVA_HOME is JDK 8 or below -->
+		                            <jdkToolchain>
+		                                <version>9</version>
+		                            </jdkToolchain>
+		                            <release>9</release>
+		                            <compilerArgs>
+		                                <arg>--add-modules</arg>
+		                                <arg>java.xml.ws.annotation</arg>
+		                                <arg>--add-modules</arg>
+		                                <arg>java.xml.bind</arg>
+		                            </compilerArgs>
+		                        </configuration>
+		                    </execution>
+		                </executions>
+		            </plugin>
+                </plugins>
+        </pluginManagement> 
+    </build>
+
+</project>
