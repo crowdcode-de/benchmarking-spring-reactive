@@ -3,12 +3,14 @@ package io.crowdcode.nonblocking.cddb;
 import io.crowdcode.blocking.cddb.domain.Album;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.net.URI;
+import java.time.Duration;
 
 @Slf4j
 @RestController
@@ -36,15 +38,14 @@ public class CddbNonBlockingController {
         return albumRepository.findByDiscId(discId);
     }
 
-    @GetMapping(path = "/init")
-    public ResponseEntity<Void> init() {
+    @GetMapping(path = "/init", produces = MediaType.APPLICATION_STREAM_JSON_VALUE)
+    public Flux<Album> init() {
         DataFixture.getDummyAlbum().forEach(a -> albumRepository.save(a).block());
-        Flux.range(0,100)
+        return Flux.range(0,20)
+                .delayElements(Duration.ofMillis(100))
                 .map(DataFixture::getAlbum)
-                .map(albumRepository::save)
-                .log()
-                .subscribe(a->a.block());
-        return ResponseEntity.accepted().build();
+                .flatMap(albumRepository::save)
+                .log();
     }
 
     @GetMapping(path = "/blocking")
