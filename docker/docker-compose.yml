@@ -1,0 +1,8 @@
+version: '2'
+services:
+  db-mongo:
+    image: mongo:3.7.2
+    stdin_open: true
+    tty: true
+    ports:
+      - 27017:27017
