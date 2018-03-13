@@ -125,7 +125,7 @@
           </GaussianRandomTimer>
           <hashTree/>
         </hashTree>
-        <GaussianRandomTimer guiclass="GaussianRandomTimerGui" testclass="GaussianRandomTimer" testname="Gaussian Random Timer" enabled="true">
+        <GaussianRandomTimer guiclass="GaussianRandomTimerGui" testclass="GaussianRandomTimer" testname="Gaussian Random Timer" enabled="false">
           <stringProp name="ConstantTimer.delay">20</stringProp>
           <stringProp name="RandomTimer.range">10.0</stringProp>
         </GaussianRandomTimer>
@@ -149,7 +149,7 @@
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <GaussianRandomTimer guiclass="GaussianRandomTimerGui" testclass="GaussianRandomTimer" testname="Gaussian Random Timer" enabled="true">
+        <GaussianRandomTimer guiclass="GaussianRandomTimerGui" testclass="GaussianRandomTimer" testname="Gaussian Random Timer" enabled="false">
           <stringProp name="ConstantTimer.delay">20</stringProp>
           <stringProp name="RandomTimer.range">10.0</stringProp>
         </GaussianRandomTimer>

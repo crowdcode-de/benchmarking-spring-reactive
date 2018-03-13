@@ -8,9 +8,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.core.MongoClientOptionsFactoryBean;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
-/**
- * @author Christoph Schemmelmann (CROWDCODE) created on 28.02.18.
- */
 @Configuration
 public class MongoConfiguration {
 
