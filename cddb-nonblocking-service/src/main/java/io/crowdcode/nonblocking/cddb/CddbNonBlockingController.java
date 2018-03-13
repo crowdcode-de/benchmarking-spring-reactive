@@ -33,7 +33,7 @@ public class CddbNonBlockingController {
 
     @GetMapping(path = "/{discId}")
     public Mono<Album> getAlbumByCode(@PathVariable("discId") String discId) {
-        return albumRepository.findByDiscId(discId);
+        return albumRepository.findByDiscId(discId).log();
     }
 
     @GetMapping(path = "/init")
