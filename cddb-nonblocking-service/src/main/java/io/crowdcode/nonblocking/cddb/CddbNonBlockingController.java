@@ -33,17 +33,17 @@ public class CddbNonBlockingController {
 
     @GetMapping(path = "/{discId}")
     public Mono<Album> getAlbumByCode(@PathVariable("discId") String discId) {
-        return albumRepository.findByDiscId(discId).log();
+        return albumRepository.findByDiscId(discId);
     }
 
     @GetMapping(path = "/init")
     public ResponseEntity<Void> init() {
-        DataFixture.getDummyAlbum().forEach(albumRepository::save);
-        for (int i = 0; i <= 100; i++) {
-            Album album = DataFixture.getAlbum(i);
-            albumRepository.save(album);
-        }
-
+        DataFixture.getDummyAlbum().forEach(a -> albumRepository.save(a).block());
+        Flux.range(0,100)
+                .map(DataFixture::getAlbum)
+                .map(albumRepository::save)
+                .log()
+                .subscribe(a->a.block());
         return ResponseEntity.accepted().build();
     }
 
