@@ -24,7 +24,7 @@ public class CddbBlockingController {
     @PostMapping
     public ResponseEntity<Void> addCdDbEntry(@RequestBody Album album) {
         albumRepository.addEntry(album);
-        countDisc();
+//        countDisc();
         return ResponseEntity.created(URI.create("/albums/" + album.getDiscId())).build();
     }
 

@@ -9,7 +9,8 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>blocking-cddb-service</module>
+        <module>cddb-blocking-service</module>
+        <module>cddb-nonblocking-service</module>
     </modules>
 
     <name>benchmarking-spring-reactive</name>
