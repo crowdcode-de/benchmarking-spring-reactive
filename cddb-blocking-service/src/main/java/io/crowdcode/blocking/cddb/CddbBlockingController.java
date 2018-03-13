@@ -16,24 +16,15 @@ import java.util.concurrent.atomic.AtomicLong;
 @RequestMapping("/albums")
 public class CddbBlockingController {
 
-    private AtomicLong discCount = new AtomicLong();
-
     @Autowired
     private AlbumMongoRepository albumRepository;
 
     @PostMapping
     public ResponseEntity<Void> addCdDbEntry(@RequestBody Album album) {
         albumRepository.addEntry(album);
-//        countDisc();
         return ResponseEntity.created(URI.create("/albums/" + album.getDiscId())).build();
     }
 
-    private void countDisc() {
-        long count = discCount.incrementAndGet();
-        if (count % 10000 == 0) {
-            log.info("Now there are {} albums", count);
-        }
-    }
 
     @GetMapping
     public ResponseEntity<List<Album>> findByArtist(@RequestParam("artist") String token) {
