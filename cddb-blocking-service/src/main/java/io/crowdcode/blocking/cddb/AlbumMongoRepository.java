@@ -15,13 +15,6 @@ public interface AlbumMongoRepository extends MongoRepository<Album, String> {
 
     Album getByDiscId(String discId);
 
-    //    @Transactional(readOnly = false)
-    default Album addEntry(Album album) {
-        return save(album
-        );
-    }
-
-    //    @Transactional(readOnly = true)
     default Album getByCode(String code) {
         return getByDiscId(code);
     }

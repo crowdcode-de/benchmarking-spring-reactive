@@ -21,10 +21,9 @@ public class CddbBlockingController {
 
     @PostMapping
     public ResponseEntity<Void> addCdDbEntry(@RequestBody Album album) {
-        albumRepository.addEntry(album);
+        albumRepository.save(album);
         return ResponseEntity.created(URI.create("/albums/" + album.getDiscId())).build();
     }
-
 
     @GetMapping
     public ResponseEntity<List<Album>> findByArtist(@RequestParam("artist") String token) {
@@ -47,13 +46,13 @@ public class CddbBlockingController {
     public ResponseEntity<Void> init() {
         List<Album> dummyAlbum = DataFixture.getDummyAlbum();
         for (Album album : dummyAlbum) {
-            albumRepository.addEntry(album);
+            albumRepository.save(album);
         }
 
         for (int i = 0; i <= 100; i++) {
             Album album = DataFixture.getAlbum(i);
-            albumRepository.addEntry(album);
-            // system.out.println(album.getDiscId());
+            albumRepository.save(album);
+            log.info(album.getDiscId());
         }
 
         return ResponseEntity.accepted().build();
