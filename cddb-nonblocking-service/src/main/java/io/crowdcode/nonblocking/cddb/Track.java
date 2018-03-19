@@ -1,4 +1,4 @@
-package io.crowdcode.blocking.cddb.domain;
+package io.crowdcode.nonblocking.cddb;
 
 import lombok.Getter;
 import lombok.Setter;

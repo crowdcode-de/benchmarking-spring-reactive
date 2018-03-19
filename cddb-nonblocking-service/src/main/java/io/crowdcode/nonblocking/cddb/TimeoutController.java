@@ -25,7 +25,7 @@ public class TimeoutController {
 
     private void doSomethingSlow() {
         try {
-            System.out.println(">"+Thread.currentThread().getName());
+            System.out.println(">" + Thread.currentThread().getName());
             TimeUnit.SECONDS.sleep(20);
         } catch (InterruptedException e) {
             log.error(e.getMessage(), e);

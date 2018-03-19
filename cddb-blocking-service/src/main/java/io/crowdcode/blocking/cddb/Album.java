@@ -1,4 +1,4 @@
-package io.crowdcode.blocking.cddb.domain;
+package io.crowdcode.blocking.cddb;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -7,7 +7,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Setter
@@ -29,12 +29,9 @@ public class Album implements Serializable {
     public Album() {
     }
 
-    public void setAllTracks(Track... tracks) {
-        List<Track> trackList = new ArrayList<>();
-        for (Track t : tracks) {
-            trackList.add(t);
-        }
-        this.tracks = trackList;
+    public Album setAllTracks(Track... tracks) {
+        this.tracks = Arrays.asList(tracks);
+        return this;
     }
 
     @Override

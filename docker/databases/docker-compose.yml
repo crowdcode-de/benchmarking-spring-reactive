@@ -1,0 +1,27 @@
+version: '2'
+services:
+  db-redis:
+    image: redis:4.0.8
+    stdin_open: true
+    tty: true
+    command:
+    - redis-server
+    - --appendonly
+    - 'yes'
+    ports:
+      - 6379:6379
+  db-mongo:
+    image: mongo:3.7.2
+    stdin_open: true
+    tty: true
+    ports:
+      - 27017:27017
+  db-postgres:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: example123
+      POSTGRES_USER: example
+    stdin_open: true
+    tty: true
+    ports:
+      - 5432:5432

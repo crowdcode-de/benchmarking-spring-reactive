@@ -1,4 +1,4 @@
-package io.crowdcode.blocking.cddb.domain;
+package io.crowdcode.blocking.cddb;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -15,6 +15,10 @@ public class Track implements Serializable {
 
     private String title;
     private int trackNo;
+
+    public Track() {
+
+    }
 
     public Track(String title, int trackNo) {
         this.title = title;

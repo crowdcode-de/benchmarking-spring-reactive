@@ -1,6 +1,5 @@
 package io.crowdcode.nonblocking.cddb;
 
-import io.crowdcode.blocking.cddb.domain.Album;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -41,7 +40,7 @@ public class CddbNonBlockingController {
     @GetMapping(path = "/init", produces = MediaType.APPLICATION_STREAM_JSON_VALUE)
     public Flux<Album> init() {
         DataFixture.getDummyAlbum().forEach(a -> albumRepository.save(a).block());
-        return Flux.range(0,20)
+        return Flux.range(0, 20)
                 .delayElements(Duration.ofMillis(100))
                 .map(DataFixture::getAlbum)
                 .flatMap(albumRepository::save)
@@ -50,7 +49,7 @@ public class CddbNonBlockingController {
 
     @GetMapping(path = "/blocking")
     public ResponseEntity<String> blocking() {
-        return ResponseEntity.ok("I AM NONBLOCKING");
+        return ResponseEntity.ok("I AM NONBLOCKING MONGO CDDB SERVICE");
     }
 
 }

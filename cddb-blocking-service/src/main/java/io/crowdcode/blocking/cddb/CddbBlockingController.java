@@ -1,15 +1,15 @@
 package io.crowdcode.blocking.cddb;
 
-import io.crowdcode.blocking.cddb.domain.Album;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
+import java.time.Duration;
 import java.util.List;
 import java.util.Optional;
-import java.util.concurrent.atomic.AtomicLong;
+import java.util.concurrent.Flow;
 
 @Slf4j
 @RestController
@@ -44,10 +44,7 @@ public class CddbBlockingController {
 
     @GetMapping(path = "/init")
     public ResponseEntity<Void> init() {
-        List<Album> dummyAlbum = DataFixture.getDummyAlbum();
-        for (Album album : dummyAlbum) {
-            albumRepository.save(album);
-        }
+        DataFixture.getDummyAlbum().forEach(a -> albumRepository.save(a));
 
         for (int i = 0; i <= 100; i++) {
             Album album = DataFixture.getAlbum(i);
@@ -60,7 +57,7 @@ public class CddbBlockingController {
 
     @GetMapping(path = "/blocking")
     public ResponseEntity<String> blocking() {
-        return ResponseEntity.ok("I AM BLOCKING");
+        return ResponseEntity.ok("I AM BLOCKING MONGO SERVICE");
     }
 
 }

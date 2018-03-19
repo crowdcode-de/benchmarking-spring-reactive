@@ -1,8 +1,8 @@
 package io.crowdcode.nonblocking.cddb;
 
 
-import io.crowdcode.blocking.cddb.domain.Album;
-import io.crowdcode.blocking.cddb.domain.Track;
+import io.crowdcode.nonblocking.cddb.Album;
+import io.crowdcode.nonblocking.cddb.Track;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
