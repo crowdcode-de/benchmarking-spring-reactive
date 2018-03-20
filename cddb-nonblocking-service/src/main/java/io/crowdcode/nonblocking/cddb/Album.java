@@ -26,6 +26,7 @@ public class Album implements Serializable {
     private String artist;
     private String genre;
     private Integer year;
+    private String hashValue;
     private List<Track> tracks;
 
     public Album() {

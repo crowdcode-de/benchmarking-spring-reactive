@@ -19,11 +19,15 @@ public class CddbNonBlockingController {
     @Autowired
     private AlbumMongoRepository albumRepository;
 
+    @Autowired
+    private HashGenerator hashGenerator;
+
 
     @PostMapping
-    public Mono<ResponseEntity<Void>> addCdDbEntry(@RequestBody Album album) {
-        Mono<Album> save = albumRepository.save(album);
-        return save.map(a -> ResponseEntity.created(URI.create("/albums/" + album.getDiscId())).build());
+    public Mono<ResponseEntity<Void>> addCddbEntry(@RequestBody Album album) {
+        return albumRepository.save(album)
+                .map(hashGenerator::generateHashFromAlbum)
+                .map(a -> ResponseEntity.created(URI.create("/albums/" + album.getDiscId())).build());
     }
 
     @GetMapping
@@ -34,7 +38,7 @@ public class CddbNonBlockingController {
 
     @GetMapping(path = "/{discId}")
     public Mono<Album> getAlbumByCode(@PathVariable("discId") String discId) {
-        return albumRepository.findByDiscId(discId);
+        return albumRepository.findByDiscId(discId).map(hashGenerator::generateHashFromAlbum);
     }
 
     @GetMapping(path = "/init", produces = MediaType.APPLICATION_STREAM_JSON_VALUE)
@@ -43,6 +47,7 @@ public class CddbNonBlockingController {
         return Flux.range(0, 20)
                 .delayElements(Duration.ofMillis(100))
                 .map(DataFixture::getAlbum)
+                .map(hashGenerator::generateHashFromAlbum)
                 .flatMap(albumRepository::save)
                 .log();
     }
