@@ -1,0 +1,58 @@
+GET http://localhost:8080/albums/init
+Accept: */*
+Content-Type: application/json
+
+###
+
+GET http://localhost:8080/albums?artist=Slairrr
+Accept: */*
+Content-Type: application/json
+
+###
+
+GET http://localhost:8080/albums/5294-2123-5010-5567
+Accept: application/json
+Content-Type: application/json
+
+###
+
+POST http://localhost:8080/albums
+Accept: application/json
+Content-Type: application/json
+
+{
+  "discId": "5294-2123-5010-5567",
+  "name": "SOVHnfBCIWYJ",
+  "artist": "OPpXu",
+  "genre": "abcYY",
+  "year": 1973,
+  "tracks": [
+    {
+      "title": "Angel of Milk",
+      "trackNo": 1
+    },
+    {
+      "title": "Rest in Spoons",
+      "trackNo": 2
+    },
+    {
+      "title": "Reigning Lactose",
+      "trackNo": 3
+    },
+    {
+      "title": "Seasons in the fermenter",
+      "trackNo": 4
+    }
+  ]
+}
+
+###
+
+GET http://localhost:27017/
+Accept: application/json
+
+###
+
+GET http://localhost:8080/veryslow?wait=50
+
+###

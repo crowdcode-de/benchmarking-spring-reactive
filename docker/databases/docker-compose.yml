@@ -9,13 +9,13 @@ services:
     - --appendonly
     - 'yes'
     ports:
-      - 6379:6379
+    - 6379:6379
   db-mongo:
     image: mongo:3.7.2
     stdin_open: true
     tty: true
     ports:
-      - 27017:27017
+    - 27017:27017
   db-postgres:
     image: postgres
     environment:
@@ -24,4 +24,4 @@ services:
     stdin_open: true
     tty: true
     ports:
-      - 5432:5432
+    - 5432:5432

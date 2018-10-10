@@ -1,1 +1,25 @@
-{"discId":"5294-2123-5010-5567","name":"SOVHnfBCIWYJ","artist":"OPpXu","genre":"abcYY","year":1973,"tracks":[{"title":"Angel of Milk","trackNo":1},{"title":"Rest in Spoons","trackNo":2},{"title":"Reigning Lactose","trackNo":3},{"title":"Seasons in the fermenter","trackNo":4}]}
+{
+  "discId": "5294-2123-5010-5567",
+  "name": "SOVHnfBCIWYJ",
+  "artist": "OPpXu",
+  "genre": "abcYY",
+  "year": 1973,
+  "tracks": [
+    {
+      "title": "Angel of Milk",
+      "trackNo": 1
+    },
+    {
+      "title": "Rest in Spoons",
+      "trackNo": 2
+    },
+    {
+      "title": "Reigning Lactose",
+      "trackNo": 3
+    },
+    {
+      "title": "Seasons in the fermenter",
+      "trackNo": 4
+    }
+  ]
+}
