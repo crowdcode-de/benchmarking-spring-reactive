@@ -25,7 +25,7 @@ public class DataFixture {
         a1.setDiscId("4711-1110-1112-6667");
         a1.setGenre("Country");
         a1.setName("Rectal Songs");
-        a1.setYear(2017);
+        a1.setYear(2018);
 
         Track a1t1 = new Track("There is a caterpiller in your butt", 1);
         Track a1t2 = new Track("Holy Moly", 2);
