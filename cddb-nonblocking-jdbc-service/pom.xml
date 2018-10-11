@@ -2,6 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
@@ -11,10 +12,10 @@
         <relativePath>../service-parent</relativePath>
     </parent>
 
-    <artifactId>cddb-blocking-jdbc-service</artifactId>
+    <artifactId>cddb-nonblocking-jdbc-service</artifactId>
 
     <name>cddb-blocking-jdbc-service</name>
-    <description>Benchmarkin example with blocking postgres</description>
+    <description>Benchmarkin example with blocking mongodb</description>
 
     <dependencies>
         <dependency>
@@ -51,6 +52,12 @@
         </dependency>
 
         <dependency>
+            <groupId>com.github.alaisi.pgasync</groupId>
+            <artifactId>postgres-async-driver</artifactId>
+            <version>0.9</version>
+        </dependency>
+
+        <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <scope>test</scope>
@@ -66,6 +73,5 @@
             </plugin>
         </plugins>
     </build>
-
 
 </project>
