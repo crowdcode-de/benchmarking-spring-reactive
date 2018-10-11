@@ -27,6 +27,7 @@
         <module>service-commons</module>
         <module>cddb-blocking-mongodb-service</module>
         <module>cddb-nonblocking-mongodb-service</module>
+        <module>cddb-blocking-jdbc-service</module>
     </modules>
 
     <name>benchmarking-spring-reactive</name>
