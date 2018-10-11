@@ -19,8 +19,8 @@ services:
   db-postgres:
     image: postgres
     environment:
-      POSTGRES_PASSWORD: example123
-      POSTGRES_USER: example
+      POSTGRES_PASSWORD: masterkey
+      POSTGRES_USER: postgres
     stdin_open: true
     tty: true
     ports:
