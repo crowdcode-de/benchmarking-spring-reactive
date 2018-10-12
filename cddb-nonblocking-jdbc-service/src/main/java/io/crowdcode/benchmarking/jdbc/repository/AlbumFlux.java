@@ -1,6 +1,6 @@
-package io.crowdcode.reactivebenchmarking.jdbc.repository;
+package io.crowdcode.benchmarking.jdbc.repository;
 
-import io.crowdcode.reactivebenchmarking.jdbc.model.Album;
+import io.crowdcode.benchmarking.jdbc.model.Album;
 import reactor.core.CoreSubscriber;
 import reactor.core.publisher.Flux;
 

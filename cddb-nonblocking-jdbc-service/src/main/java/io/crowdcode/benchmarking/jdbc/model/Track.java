@@ -1,4 +1,4 @@
-package io.crowdcode.reactivebenchmarking.jdbc.model;
+package io.crowdcode.benchmarking.jdbc.model;
 
 import java.io.Serializable;
 

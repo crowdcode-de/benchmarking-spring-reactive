@@ -13,7 +13,7 @@
     <artifactId>cddb-nonblocking-mongodb-service</artifactId>
 
     <name>cddb-nonblocking-mongodb-service</name>
-    <description>Benchmarkin example with nonblocking mongodb</description>
+    <description>Benchmarking example with nonblocking mongodb</description>
 
     <dependencies>
         <dependency>

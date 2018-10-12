@@ -1,8 +1,8 @@
-package io.crowdcode.reactivebenchmarking.jdbc;
+package io.crowdcode.benchmarking.jdbc;
 
 
-import io.crowdcode.reactivebenchmarking.jdbc.model.Album;
-import io.crowdcode.reactivebenchmarking.jdbc.repository.AlbumRepository;
+import io.crowdcode.benchmarking.jdbc.model.Album;
+import io.crowdcode.benchmarking.jdbc.repository.AlbumRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

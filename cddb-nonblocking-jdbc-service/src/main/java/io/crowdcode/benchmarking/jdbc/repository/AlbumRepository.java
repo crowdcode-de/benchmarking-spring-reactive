@@ -1,8 +1,8 @@
-package io.crowdcode.reactivebenchmarking.jdbc.repository;
+package io.crowdcode.benchmarking.jdbc.repository;
 
 import com.github.pgasync.Db;
-import io.crowdcode.reactivebenchmarking.jdbc.model.Album;
-import io.crowdcode.reactivebenchmarking.jdbc.model.Track;
+import io.crowdcode.benchmarking.jdbc.model.Album;
+import io.crowdcode.benchmarking.jdbc.model.Track;
 import lombok.extern.slf4j.Slf4j;
 import org.reactivestreams.Subscriber;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,12 +13,11 @@ import reactor.core.publisher.Mono;
 import rx.Subscription;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-import static io.crowdcode.reactivebenchmarking.jdbc.repository.AlbumRowMapper.ALBUM_COLUMNS;
-import static io.crowdcode.reactivebenchmarking.jdbc.repository.AlbumRowMapper.ALBUM_PARAMS;
-import static io.crowdcode.reactivebenchmarking.jdbc.repository.TrackRowMapper.*;
+import static io.crowdcode.benchmarking.jdbc.repository.AlbumRowMapper.ALBUM_COLUMNS;
+import static io.crowdcode.benchmarking.jdbc.repository.AlbumRowMapper.ALBUM_PARAMS;
+import static io.crowdcode.benchmarking.jdbc.repository.TrackRowMapper.*;
 
 @Slf4j
 @Repository
@@ -45,8 +44,11 @@ public class AlbumRepository {
 
     private static final String insertTrack = "INSERT INTO TRACK(" + TRACK_COLUMNS + ") VALUES (" + TRACK_PARAMS + ")";
 
-    @Autowired
+    @Autowired(required = false)
     private Db db;
+
+//    @Autowired
+//    private PgPool client;
 
 
     public Album save(Album album) {
@@ -58,8 +60,9 @@ public class AlbumRepository {
         parameters.add(album.getYear());
         parameters.add(album.getHashValue());
 
+
         Subscription subscribtion = db.querySet(insertAlbum, parameters.toArray())
-            .subscribe(result -> log.info("Inserted ALBUM {} rows", result.updatedRows()));
+                .subscribe(result -> log.info("Inserted ALBUM {} rows", result.updatedRows()));
 
         for (Track track : album.getTracks()) {
             List<Object> trackParms = new ArrayList<>();
@@ -68,7 +71,7 @@ public class AlbumRepository {
             trackParms.add(album.getDiscId());
 
             db.querySet(insertTrack, trackParms.toArray(new Object[trackParms.size()]))
-                    .subscribe(result -> log.info("Inserted TRACK %d rows", result.updatedRows()));
+                    .subscribe(result -> log.info("Inserted TRACK {} rows", result.updatedRows()));
         }
 
 

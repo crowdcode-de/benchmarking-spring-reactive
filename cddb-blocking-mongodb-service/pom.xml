@@ -13,7 +13,7 @@
     <artifactId>cddb-blocking-mongodb-service</artifactId>
 
     <name>cddb-blocking-mongodb-service</name>
-    <description>Benchmarkin example with blocking mongodb</description>
+    <description>Benchmarking example with blocking mongodb</description>
 
     <dependencies>
         <dependency>

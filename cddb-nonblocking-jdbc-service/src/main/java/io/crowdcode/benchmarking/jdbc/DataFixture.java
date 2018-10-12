@@ -1,7 +1,7 @@
-package io.crowdcode.reactivebenchmarking.jdbc;
+package io.crowdcode.benchmarking.jdbc;
 
-import io.crowdcode.reactivebenchmarking.jdbc.model.Album;
-import io.crowdcode.reactivebenchmarking.jdbc.model.Track;
+import io.crowdcode.benchmarking.jdbc.model.Album;
+import io.crowdcode.benchmarking.jdbc.model.Track;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;

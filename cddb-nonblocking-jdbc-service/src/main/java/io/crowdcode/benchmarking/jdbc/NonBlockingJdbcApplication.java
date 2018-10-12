@@ -1,11 +1,8 @@
-package io.crowdcode.reactivebenchmarking.jdbc;
+package io.crowdcode.benchmarking.jdbc;
 
-import com.github.pgasync.ConnectionPoolBuilder;
-import com.github.pgasync.Db;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class NonBlockingJdbcApplication {
