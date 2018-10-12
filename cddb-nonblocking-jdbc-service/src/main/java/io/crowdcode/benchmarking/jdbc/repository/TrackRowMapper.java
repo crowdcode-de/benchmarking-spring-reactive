@@ -1,7 +1,7 @@
-package io.crowdcode.reactivebenchmarking.jdbc.repository;
+package io.crowdcode.benchmarking.jdbc.repository;
 
 import com.github.pgasync.Row;
-import io.crowdcode.reactivebenchmarking.jdbc.model.Track;
+import io.crowdcode.benchmarking.jdbc.model.Track;
 
 import java.sql.SQLException;
 import java.util.Arrays;

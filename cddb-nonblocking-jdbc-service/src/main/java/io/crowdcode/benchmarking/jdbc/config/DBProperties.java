@@ -1,4 +1,4 @@
-package io.crowdcode.reactivebenchmarking.jdbc.config;
+package io.crowdcode.benchmarking.jdbc.config;
 
 
 import lombok.Data;
@@ -11,6 +11,6 @@ public class DBProperties {
     private String username = "postgres";
     private String password;
     private String database = "postgres";
-    private Integer poolSize = 10000;
+    private Integer poolSize = 5;
 
 }

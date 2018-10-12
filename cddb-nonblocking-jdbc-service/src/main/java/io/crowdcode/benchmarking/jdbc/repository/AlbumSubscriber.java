@@ -1,9 +1,9 @@
-package io.crowdcode.reactivebenchmarking.jdbc.repository;
+package io.crowdcode.benchmarking.jdbc.repository;
 
 import com.github.pgasync.ResultSet;
 import com.github.pgasync.Row;
-import io.crowdcode.reactivebenchmarking.jdbc.model.Album;
-import io.crowdcode.reactivebenchmarking.jdbc.model.Track;
+import io.crowdcode.benchmarking.jdbc.model.Album;
+import io.crowdcode.benchmarking.jdbc.model.Track;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
@@ -14,7 +14,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import static io.crowdcode.reactivebenchmarking.jdbc.repository.AlbumRowMapper.ALB_DISC_ID;
+import static io.crowdcode.benchmarking.jdbc.repository.AlbumRowMapper.ALB_DISC_ID;
 
 public class AlbumSubscriber extends rx.Subscriber<ResultSet> implements Publisher<Album> {
 

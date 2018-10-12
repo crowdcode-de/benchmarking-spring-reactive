@@ -1,4 +1,4 @@
-package io.crowdcode.reactivebenchmarking.jdbc.config;
+package io.crowdcode.benchmarking.jdbc.config;
 
 import com.github.pgasync.ConnectionPoolBuilder;
 import com.github.pgasync.Db;
@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
+
 public class DatabaseConfiguration {
 
     @Bean
@@ -17,7 +18,7 @@ public class DatabaseConfiguration {
 
     @Bean
     public Db db(DBProperties dbProperties) {
-       return new ConnectionPoolBuilder()
+        return new ConnectionPoolBuilder()
                 .hostname(dbProperties.getHost())
                 .port(Integer.valueOf(dbProperties.getPort()))
                 .database(dbProperties.getDatabase())
