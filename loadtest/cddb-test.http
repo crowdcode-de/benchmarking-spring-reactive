@@ -16,8 +16,6 @@ Content-Type: application/json
 
 ###
 
-
-
 POST http://localhost:8080/albums
 Accept: application/json
 Content-Type: application/json
@@ -55,9 +53,9 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "discId": "5294-2123-5010-5567",
-  "name": "JCON",
-  "artist": "JCON",
+  "discId": "5294-2123-5010-5567as",
+  "name": "JCONas",
+  "artist": "JCONas",
   "genre": "abcYY",
   "year": 2018,
   "tracks": [
@@ -73,11 +71,10 @@ Content-Type: application/json
 }
 
 
-GET http://localhost:27017/
-Accept: application/json
+###
 
 ###
 
-GET http://localhost:8080/veryslow?wait=50
+GET http://localhost:8080/veryslow?wait=30
 
 ###
