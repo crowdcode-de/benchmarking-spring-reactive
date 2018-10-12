@@ -14,7 +14,7 @@
     <artifactId>cddb-blocking-jdbc-service</artifactId>
 
     <name>cddb-blocking-jdbc-service</name>
-    <description>Benchmarkin example with blocking postgres</description>
+    <description>Benchmarking example with blocking postgres</description>
 
     <dependencies>
         <dependency>
