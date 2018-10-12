@@ -17,13 +17,15 @@ public class AlbumRowMapper implements RowMapper<Album> {
     public static final String ALB_GENRE = "ALB_GENRE";
     public static final String ALB_NAME = "ALB_NAME";
     public static final String ALB_YEAR = "ALB_YEAR";
+    public static final String ALB_HASHVALUE = "ALB_HASH";
 
     public static final String ALBUM_COLUMNS = String.join(","
             , Arrays.asList(ALB_DISC_ID,
                     ALB_ARTIST,
                     ALB_GENRE,
                     ALB_NAME,
-                    ALB_YEAR));
+                    ALB_YEAR,
+                    ALB_HASHVALUE));
 
 
     @Override
@@ -34,6 +36,7 @@ public class AlbumRowMapper implements RowMapper<Album> {
         result.setGenre(resultSet.getString(ALB_GENRE));
         result.setName(resultSet.getString(ALB_NAME));
         result.setYear(resultSet.getInt(ALB_YEAR));
+        result.setHashValue(resultSet.getString(ALB_HASHVALUE));
         return result;
     }
 }

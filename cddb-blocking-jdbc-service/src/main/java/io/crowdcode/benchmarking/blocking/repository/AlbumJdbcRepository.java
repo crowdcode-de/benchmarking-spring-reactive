@@ -77,6 +77,7 @@ public class AlbumJdbcRepository {
             parameters.put(ALB_GENRE, album.getGenre());
             parameters.put(ALB_NAME, album.getName());
             parameters.put(ALB_YEAR, album.getYear());
+            parameters.put(ALB_HASHVALUE, album.getHashValue());
 
             insertAlbum.execute(parameters);
 
